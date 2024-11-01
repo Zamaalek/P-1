@@ -1,3 +1,4 @@
+*.png
 .vs/
 bin/
 obj/
