@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            tabControl1 = new TabControl();
+            tabControl = new TabControl();
             tabPage_trojkat = new TabPage();
             pictureBox2 = new PictureBox();
             label_wynik_trojkat = new Label();
@@ -46,7 +46,7 @@
             textBox_kolo_promien = new TextBox();
             label3 = new Label();
             label2 = new Label();
-            tabControl1.SuspendLayout();
+            tabControl.SuspendLayout();
             tabPage_trojkat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             tabPage_kolo.SuspendLayout();
@@ -55,15 +55,16 @@
             // 
             // tabControl1
             // 
-            tabControl1.Controls.Add(tabPage_trojkat);
-            tabControl1.Controls.Add(tabPage_kolo);
-            tabControl1.Dock = DockStyle.Fill;
-            tabControl1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            tabControl1.Location = new Point(0, 0);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(800, 450);
-            tabControl1.TabIndex = 0;
+            tabControl.Controls.Add(tabPage_trojkat);
+            tabControl.Controls.Add(tabPage_kolo);
+            tabControl.Dock = DockStyle.Fill;
+            tabControl.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            tabControl.Location = new Point(0, 0);
+            tabControl.Name = "tabControl1";
+            tabControl.SelectedIndex = 0;
+            tabControl.Size = new Size(800, 450);
+            tabControl.TabIndex = 0;
+            tabControl.Selected += TabControl_Selected;
             // 
             // tabPage_trojkat
             // 
@@ -145,7 +146,7 @@
             textBox_trojkat_podstawa.Location = new Point(72, 172);
             textBox_trojkat_podstawa.Name = "textBox_trojkat_podstawa";
             textBox_trojkat_podstawa.Size = new Size(100, 29);
-            textBox_trojkat_podstawa.TabIndex = 5;
+            textBox_trojkat_podstawa.TabIndex = 0;
             textBox_trojkat_podstawa.TextChanged += TextBox_TextChanged;
             textBox_trojkat_podstawa.Enter += TextBox_Enter;
             textBox_trojkat_podstawa.Leave += TextBox_Leave;
@@ -168,7 +169,7 @@
             label1.Location = new Point(55, 31);
             label1.Name = "label1";
             label1.Size = new Size(145, 30);
-            label1.TabIndex = 0;
+            label1.TabIndex = 100;
             label1.Text = "Pole trójkąta";
             // 
             // tabPage_kolo
@@ -227,7 +228,7 @@
             textBox_kolo_promien.Location = new Point(72, 172);
             textBox_kolo_promien.Name = "textBox_kolo_promien";
             textBox_kolo_promien.Size = new Size(100, 29);
-            textBox_kolo_promien.TabIndex = 3;
+            textBox_kolo_promien.TabIndex = 0;
             textBox_kolo_promien.TextChanged += TextBox_TextChanged;
             textBox_kolo_promien.Enter += TextBox_Enter;
             textBox_kolo_promien.Leave += TextBox_Leave;
@@ -258,12 +259,13 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(tabControl1);
+            Controls.Add(tabControl);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Form1";
             Text = "P-1";
-            tabControl1.ResumeLayout(false);
+            Shown += Form_Shown;
+            tabControl.ResumeLayout(false);
             tabPage_trojkat.ResumeLayout(false);
             tabPage_trojkat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -275,7 +277,7 @@
 
         #endregion
 
-        private TabControl tabControl1;
+        private TabControl tabControl;
         private TabPage tabPage_trojkat;
         private TabPage tabPage_kolo;
         private Label label1;
