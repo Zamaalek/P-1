@@ -1,0 +1,4 @@
+*.png
+.vs/
+bin/
+obj/
